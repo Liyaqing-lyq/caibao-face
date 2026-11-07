@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#781f35">
+  <title>财宝儿换脸 · 二维换脸相机</title>
+  <link rel="icon" href="assets/business.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./"><span class="seal">财</span><span>财宝儿换脸<small>CAIBAO FACE · 二维换脸相机</small></span></a>
+    <span class="edition">中央财经大学 · 财宝儿</span>
+    <a class="help" href="使用手册.html" target="_blank" rel="noopener">使用指南 ↗</a>
+  </header>
+  <main>
+    <section class="intro">
+      <div><p class="eyebrow">中央财经大学 · 财宝儿</p><h1><span>财宝儿</span>换脸</h1><p class="lead">开启摄像头，双手比框即可换脸。也可以点击按钮切换四款头像。</p></div>
+      <div class="intro-note"><span>01—04</span><p>四款头像<br>随机切换</p></div>
+    </section>
+    <div class="workspace">
+      <section class="camera-card" aria-label="互动摄影区">
+        <div class="camera-top"><span><i id="statusDot"></i><b id="status" role="status" aria-live="polite">等待开启摄像头</b></span><span id="mode">真人模式</span></div>
+        <div class="viewport">
+          <video id="camera" autoplay muted playsinline></video>
+          <canvas id="scene" width="960" height="540" aria-label="摄像头及财宝儿换脸画面"></canvas>
+          <div class="welcome" id="welcome">
+            <div class="welcome-art"><img src="assets/study.png" alt="书香财宝儿"><img src="assets/business.png" alt="商务财宝儿"><img src="assets/sport.png" alt="运动财宝儿"></div>
+            <h2>开启摄像头，试试换脸</h2><p>开启镜头后，双手拇指与食指比框，将脸放入框内</p>
+            <button id="welcomeStart" class="primary" type="button">开启摄像头 →</button><small>识别与照片处理均在本机完成</small>
+          </div>
+          <div id="flash" aria-hidden="true"></div>
+          <div class="canvas-label"><span>CAIBAO FACE</span><span id="tracking">等待镜头</span></div>
+        </div>
+        <div class="camera-bottom"><p id="hint" aria-live="polite">也可以用下方按钮换脸，无需手势。</p><span id="counter">已换脸 0 次</span></div>
+        <div class="toolbar"><button class="primary" id="start" type="button">开启摄像头</button><button id="change" type="button" disabled>换一款财宝儿</button><button id="restore" type="button" disabled>恢复真人</button><button id="capture" type="button" disabled>保存校园合影 ↓</button></div>
+        <p id="error" role="alert" hidden></p>
+      </section>
+      <aside>
+        <section class="panel">
+          <div class="panel-title"><h2>当前头像</h2><span id="activeTag">尚未选择</span></div>
+          <div class="current"><img id="currentImage" src="assets/business.png" alt="财宝儿形象预览"><div><h3 id="currentName">选择一款财宝儿</h3><p id="currentText">点击换脸或双手比框，连续两次不会重复。</p></div></div>
+          <div class="character-grid" id="gallery"><div data-character="0"><img src="assets/sport.png" alt=""><span>运动财宝</span><small>红色刘海</small></div><div data-character="1"><img src="assets/study.png" alt=""><span>书香财宝</span><small>圆框眼镜</small></div><div data-character="2"><img src="assets/music.png" alt=""><span>音乐财宝</span><small>耳机造型</small></div><div data-character="3"><img src="assets/business.png" alt=""><span>商务财宝</span><small>蓝色刘海</small></div></div>
+        </section>
+        <section class="panel settings">
+          <h2>画面设置</h2>
+          <label class="range-label" for="size">头像大小 <output id="sizeValue">100%</output></label><input id="size" type="range" min="80" max="140" value="100">
+          <label class="range-label" for="offset">上下位置 <output id="offsetValue">0</output></label><input id="offset" type="range" min="-25" max="25" value="0">
+          <div class="toggles"><label><input id="mirror" type="checkbox" checked> 镜像画面</label><label><input id="guides" type="checkbox" checked> 手势辅助线</label></div>
+          <div class="minor-actions"><button id="switch" type="button" disabled>切换前后镜头</button><button id="stop" type="button" disabled>关闭摄像头</button></div>
+        </section>
+        <section class="how"><span>手势操作</span><p>双手拇指与食指比框，围住脸并保持约 0.7 秒。放下手后，再比框可换下一款。</p><p>快捷键：空格换脸 · R 恢复 · S 拍照</p></section>
+      </aside>
+    </div>
+    <section class="steps"><div><b>01</b><span><strong>开启镜头</strong><small>允许浏览器使用摄像头</small></span></div><div><b>02</b><span><strong>比框换脸</strong><small>也可点击按钮换脸</small></span></div><div><b>03</b><span><strong>保存合影</strong><small>下载带主题相框的合影</small></span></div></section>
+  </main>
+  <footer><span>财宝儿换脸 · 二维实时换脸</span><span>财宝儿形象：中央财经大学 · 本作品为校园互动展示</span></footer>
+  <script src="vendor/hands/hands.js"></script><script src="vendor/face_mesh/face_mesh.js"></script><script type="module" src="app.js"></script>
+</body>
+</html>

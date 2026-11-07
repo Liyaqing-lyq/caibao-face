@@ -1,0 +1,8 @@
+{
+  "name": "caibao-face",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "中央财经大学财宝儿主题二维实时手势换脸互动网页",
+  "scripts": { "test": "node --test tests/engine.test.js" }
+}
